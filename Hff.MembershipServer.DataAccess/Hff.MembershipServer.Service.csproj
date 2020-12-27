@@ -29,4 +29,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Hff.MembershipServer.Entities\Hff.MembershipServer.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

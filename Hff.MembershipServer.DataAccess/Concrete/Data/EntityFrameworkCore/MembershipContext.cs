@@ -1,16 +1,23 @@
 ﻿using Hff.MembershipServer.Entities.Concrete;
+using Hff.MembershipServer.Service.Concrete.Data.Mapping;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hff.MembershipServer.Service.Concrete.Data.EntityFrameworkCore
 {
-    public class MembershipContext : DbContext
+    public class MembershipContext : IdentityDbContext<AppUser,AppRole,int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-3VB3SSC\\SQLEXPRESS01;Database=MembershipServer;Integrated Security=true");
+            optionsBuilder.UseSqlServer("server=DESKTOP-3VB3SSC\\SQLEXPRESS01;Database=FnfWorkshopMembershipIdentityServer;Integrated Security=true");
 
         }
-        public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet<Role> Roles { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfiguration(new AppUserMap());
+        }
+        
+
+
     }
 }

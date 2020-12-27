@@ -4,14 +4,16 @@ using Hff.MembershipServer.Service.Concrete.Data.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hff.MembershipServer.Service.Migrations
 {
     [DbContext(typeof(MembershipContext))]
-    partial class MembershipContextModelSnapshot : ModelSnapshot
+    [Migration("20201227162939_FixedSomeColumns")]
+    partial class FixedSomeColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
